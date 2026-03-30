@@ -46,7 +46,7 @@ export default function Index() {
       },
       onPanResponderRelease: (_, gesture) => {
         if (gesture.dx < -120) {
-          Animated.timing(translateX, {
+          Animated.timing(translateX,{
             toValue: -400,
             duration: 200,
             useNativeDriver: true,
@@ -64,9 +64,8 @@ export default function Index() {
             duration: 200,
             useNativeDriver: true,
           }).start(() => {
-            setCurrentIndex(
-              (prev) => (prev - 1 + project.length) % project.length,
-            );
+            setCurrentIndex((prev) => (prev - 1 + project.length) % project.length);
+            
             translateX.setValue(-400);
             Animated.spring(translateX, {
               toValue: 0,
